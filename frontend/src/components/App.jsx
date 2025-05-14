@@ -1,5 +1,5 @@
 import React from "react";
-import { render } from "react-dom";
+import ReactDOM from "react-dom/client"; // Updated import for React 18
 
 export default class App extends React.Component {
   constructor(props) {
@@ -12,4 +12,7 @@ export default class App extends React.Component {
 }
 
 const appDiv = document.getElementById("app");
-render(<App />, appDiv);
+
+// Use ReactDOM.createRoot instead of render in React 18
+const root = ReactDOM.createRoot(appDiv);
+root.render(<App />);
