@@ -3,6 +3,7 @@ import ReactDOM from "react-dom/client"; // Updated import for React 18
 import HomePage from "./HomePage";
 import CreateRoomPage from "./CreateRoomPage";
 import RoomJoinPage from "./RoomJoinPage";
+import RouterPage from "./RouterPage";
 
 export default class App extends React.Component {
   constructor(props) {
@@ -12,11 +13,7 @@ export default class App extends React.Component {
   render() {
     return (
       <div>
-        <h1>Hello, World! from {this.props.name}</h1>
-
-        <HomePage />
-        <CreateRoomPage />
-        <RoomJoinPage />
+        <RouterPage />
       </div>
     );
   }
@@ -26,5 +23,5 @@ const appDiv = document.getElementById("app");
 
 // Use ReactDOM.createRoot instead of render in React 18
 const root = ReactDOM.createRoot(appDiv);
-root.render(<App name="Bipin" />);
+root.render(<App />);
 // root.render(<HomePage />);
