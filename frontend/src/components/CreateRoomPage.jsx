@@ -10,11 +10,12 @@ import {
   RadioGroup,
   FormControlLabel,
 } from "@mui/material";
-import { Link } from "react-router-dom";
+import { Form, Link, useNavigate } from "react-router-dom";
 
 const CreateRoomPage = () => {
   const defaultVotes = 2;
 
+  const navigate = useNavigate();
   const [guestCanPause, setGuestCanPause] = React.useState(true);
   const [votesToSkip, setVotesToSkip] = React.useState(defaultVotes);
 
@@ -22,6 +23,8 @@ const CreateRoomPage = () => {
     setVotesToSkip(e.target.value);
   };
   const handleGuestCanPauseChange = (e) => {
+    console.log(e.target.value);
+    console.log("Equal cha ta? true ho ta? :", e.target.value === "true");
     setGuestCanPause(e.target.value === "true" ? true : false);
   };
 
@@ -36,7 +39,7 @@ const CreateRoomPage = () => {
     };
     fetch("/api/create", requestOptions)
       .then((response) => response.json())
-      .then((data) => console.log(data));
+      .then((data) => navigate("/room/" + data.code));
   };
   return (
     <Grid container spacing={1}>
@@ -57,14 +60,14 @@ const CreateRoomPage = () => {
               control={<Radio color="primary" />}
               label="Play/Pause"
               labelPlacement="bottom"
-            ></FormControlLabel>
+            />
 
             <FormControlLabel
               value="false"
               control={<Radio color="error" />}
               label="No Control"
               labelPlacement="bottom"
-            ></FormControlLabel>
+            />
           </RadioGroup>
         </FormControl>
       </Grid>

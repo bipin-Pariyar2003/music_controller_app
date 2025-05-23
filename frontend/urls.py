@@ -21,4 +21,5 @@ urlpatterns = [
    path('', index, name='index'),
    path('join', index),
    path('create', index),
+   path('room/<str:room_code>', index),
 ]
