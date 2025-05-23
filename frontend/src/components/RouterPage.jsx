@@ -1,9 +1,10 @@
 import React from "react";
 // import { browserRouter as Router } from "react-router-dom";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import HomePage from "./HomePage";
+
 import CreateRoomPage from "./CreateRoomPage";
 import RoomJoinPage from "./RoomJoinPage";
+import HomePage from "./HomePage";
 
 const RouterPage = () => {
   return (
